@@ -1,9 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //!
-//! @file		Timer.h
+//! @file		Timer.cpp
 //! 
-//! @brief		A singleton class to handle timing to milliseconds and 
-//!				microseconds precision.
+//! @brief		Implementation of the Timer class
 //! 
 //! @author		Chip Brommer
 //! 
