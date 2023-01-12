@@ -29,6 +29,18 @@
 #include <string>						// Strings
 #include <thread>						// Threading
 //
+// 
+//	Defines:
+//          name                        reason defined
+//          --------------------        ---------------------------------------
+#ifndef		CPP_LOGGER					// If CPP_Logger not included, use normal IO
+#define		USE_STDIO
+#endif
+
+#ifndef    CPP_TIMER					// Define the cpp timer class. 
+#define    CPP_TIMER
+#endif
+
 ///////////////////////////////////////////////////////////////////////////////
 
 class Timer
@@ -45,9 +57,6 @@ public:
 
 	//! @brief Release the instance
 	static void		ReleaseInstance();
-
-	//! @brief Starts the timer thread
-	void			Initialize();
 
 	//! @brief Resets the timer
 	void			Reset();
@@ -66,14 +75,22 @@ public:
 
 protected:
 private:
-	//<! Functions
+	//<! FUNCTIONS
 					Timer();					//!< Hidden Constructor
 					~Timer();					//!< Hidden Deconstructor
-	void 			HandleTrueMSec();			//!< Handle True Milliseconds as an event
-	void			Fatal(std::string msg);		//!< Error output
 
-	//!< Variables
-	bool			mInitialized;				//!< Initialized variable
+	//! @brief Hidden Initializer - starts the thread. 
+	void			Initialize();
+
+	//! @brief Handle True Milliseconds as an event
+	int 			HandleTrueMSec();
+
+	//! @brief Error output
+	void			Fatal(std::string msg);
+
+	//!< VARIABLES
+	bool			mInitialzied = false;		//!< Track if initialized
+	bool			mClosing = false;			//!< Track if closing.
 	uint32_t		mTickOffset;				//!< Timer offset from start up timer
 	bool			mTimerThreadReady;			//!< Thread flag
 	uint64_t		mUSecStartTime;				//!< System start time in usec
