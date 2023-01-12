@@ -36,11 +36,11 @@
 #ifndef		CPP_LOGGER					// If CPP_Logger not included, use normal IO
 #define		USE_STDIO
 #endif
-
+//
 #ifndef    CPP_TIMER					// Define the cpp timer class. 
 #define    CPP_TIMER
 #endif
-
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 class Timer
