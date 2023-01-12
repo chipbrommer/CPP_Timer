@@ -37,8 +37,8 @@
 #define		USE_STDIO
 #endif
 //
-#ifndef    CPP_TIMER					// Define the cpp timer class. 
-#define    CPP_TIMER
+#ifndef     CPP_TIMER					// Define the cpp timer class. 
+#define     CPP_TIMER
 #endif
 //
 ///////////////////////////////////////////////////////////////////////////////
